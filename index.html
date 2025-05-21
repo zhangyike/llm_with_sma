@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/normalize.css">
+
+	<title>Monotonic Attention for Robust Text-to-Speech Synthesis in Large Language Model Frameworks</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+
+<body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
+
+<div class="container" >
+<header role="banner">
+</header>
+<main role="main">
+<article itemscope itemtype="https://schema.org/BlogPosting">
+
+	
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+	<div class="text-center">
+	<h2>Monotonic Attention for Robust Text-to-Speech Synthesis in Large Language Model Frameworks</h2>
+
+      [<a href="pdf/Paper_Instructions_and_Template_for_Interspeech_2025.pdf">Paper</a>]
+
+        <p class="fst-italic mb-0">
+			<br>
+			Yike Zhang, Yiming Li, Jie Chen, Qinghua Wu, Songjun Cao, Long Ma
+		<p></p>
+        </p>
+        <p><b>Tencent Youtu Lab</b></p>
+	</div>
+	<p><b>Abstract:</b>
+		Text-to-speech (TTS) synthesis using large language models (LLMs) has demonstrated promising performance and has recently garnered significant attention. Despite their impressive naturalness, these methods often lack monotonic alignment constraints, resulting in issues such as repetition, omissions, and misalignment in the synthesized output. This paper introduces a stepwise monotonic attention algorithm tailored for LLM-based architectures, to enhance the robustness of TTS synthesis and effectively address these issues. Compared with the best existing model, VALL-E R, the proposed approach requires no additional forced aligners and exhibits greater robustness on out-of-domain test sets. Furthermore, experiments show that the proposed method scales well to large model sizes and large-scale training sets.
+</div>
+
+<!------ Application -------------------------->
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+	<h2 id="Samples from Seed-ZH" style="text-align: center;">Samples from Seed-ZH</h2>
+		<div class="table-responsive pt-3">
+			<table class="table table-hover pt-2">
+				<thead>
+				<tr>
+					<th style="vertical-align : middle;text-align: center">Prompt </th>
+					<th style="vertical-align : middle;text-align: center">Phn-Cosy-S-Ali</th>
+					<th style="vertical-align : middle;text-align: center">Phn-Cosy-S-SMA (Ours)</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/prompt/00005327-00000046.wav" autoplay/>Your browser does not support the audio element.</audio><br>你拍二，我拍二，二个孩子肚里饿。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-Ali/00005327-00000028.wav" autoplay/>Your browser does not support the audio element.</audio><br>很简单，坐直达车到泰安，然后买票去爬泰山。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-SMA/00005327-00000028.wav" autoplay/>Your browser does not support the audio element.</audio><br>很简单，坐直达车到泰安，然后买票去爬泰山。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/prompt/10002832-00000037.wav" autoplay/>Your browser does not support the audio element.</audio><br>体验是稳定，是和预期相符的正确性。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-Ali/10002832-00000056.wav" autoplay/>Your browser does not support the audio element.</audio><br>金沙江内水位虽然不是很高，但浑浊的江水依依然湍急。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-SMA/10002832-00000056.wav" autoplay/>Your browser does not support the audio element.</audio><br>金沙江内水位虽然不是很高，但浑浊的江水依依然湍急。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/prompt/10002842-00000093.wav" autoplay/>Your browser does not support the audio element.</audio><br>这些医疗队的医生们克服高寒缺氧，交通不便等困难。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-Ali/10002842-00000072.wav" autoplay/>Your browser does not support the audio element.</audio><br>就在营救进行的同时，楼下却不断地发出欢呼，起哄声。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-SMA/10002842-00000072.wav" autoplay/>Your browser does not support the audio element.</audio><br>就在营救进行的同时，楼下却不断地发出欢呼，起哄声。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/prompt/10004345-00000040.wav" autoplay/>Your browser does not support the audio element.</audio><br>自动驾驶将为现在的司机运力提供补充。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-Ali/10004345-00000020.wav" autoplay/>Your browser does not support the audio element.</audio><br>一点五公里后，右转驶入京藏高速辅路。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-SMA/10004345-00000020.wav" autoplay/>Your browser does not support the audio element.</audio><br>一点五公里后，右转驶入京藏高速辅路。</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/prompt/10004383-00000096.wav" autoplay/>Your browser does not support the audio element.</audio><br>安远路上算命招牌随处可见。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-Ali/10004383-00000079.wav" autoplay/>Your browser does not support the audio element.</audio><br>排查完毕，民警却发现赌场老板杜某不在其中。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH/Phn-Cosy-S-SMA/10004383-00000079.wav" autoplay/>Your browser does not support the audio element.</audio><br>排查完毕，民警却发现赌场老板杜某不在其中。</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</div>
+
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+	<h2 id="Samples from Seed-EN" style="text-align: center;">Samples from Seed-EN</h2>
+		<div class="table-responsive pt-3">
+			<table class="table table-hover pt-2">
+				<thead>
+				<tr>
+					<th style="vertical-align : middle;text-align: center">Prompt </th>
+					<th style="vertical-align : middle;text-align: center">Phn-Cosy-S-Ali</th>
+					<th style="vertical-align : middle;text-align: center">Phn-Cosy-S-SMA (Ours)</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/prompt/common_voice_en_17324784.wav" autoplay/>Your browser does not support the audio element.</audio><br>Not everything that is faced can be changed; but nothing can be changed until it is faced.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-Ali/common_voice_en_17324784-common_voice_en_17324786.wav" autoplay/>Your browser does not support the audio element.</audio><br>As independent studies document, the Neanderthals developed simple tools such as spears.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-SMA/common_voice_en_17324784-common_voice_en_17324786.wav" autoplay/>Your browser does not support the audio element.</audio><br>As independent studies document, the Neanderthals developed simple tools such as spears.</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/prompt/common_voice_en_17817002.wav" autoplay/>Your browser does not support the audio element.</audio><br>Two hundred years after founding, the town got the right to mint its own coin.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-Ali/common_voice_en_17817002-common_voice_en_17817005.wav" autoplay/>Your browser does not support the audio element.</audio><br>The famous Mona Lisa painting was painted by Leonardo Da Vinci.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-SMA/common_voice_en_17817002-common_voice_en_17817005.wav" autoplay/>Your browser does not support the audio element.</audio><br>The famous Mona Lisa painting was painted by Leonardo Da Vinci.</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/prompt/common_voice_en_17920116.wav" autoplay/>Your browser does not support the audio element.</audio><br>Love does much but money does all.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-Ali/common_voice_en_17920116-common_voice_en_17920112.wav" autoplay/>Your browser does not support the audio element.</audio><br>Appearances are deceptive.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-SMA/common_voice_en_17920116-common_voice_en_17920112.wav" autoplay/>Your browser does not support the audio element.</audio><br>Appearances are deceptive.</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/prompt/common_voice_en_18746637.wav" autoplay/>Your browser does not support the audio element.</audio><br>The complete list is divided into separate articles by geographical region.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-Ali/common_voice_en_18746637-common_voice_en_18746639.wav" autoplay/>Your browser does not support the audio element.</audio><br>The nest is a flimsy platform of sticks is built by both sexes.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-SMA/common_voice_en_18746637-common_voice_en_18746639.wav" autoplay/>Your browser does not support the audio element.</audio><br>The nest is a flimsy platform of sticks is built by both sexes.</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/prompt/common_voice_en_22713724.wav" autoplay/>Your browser does not support the audio element.</audio><br>An episode of "In Living Color" was dedicated in Kinison's memory.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-Ali/common_voice_en_22713724-common_voice_en_22713725.wav" autoplay/>Your browser does not support the audio element.</audio><br>Since work done is force times distance, mechanical power is force times speed.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-EN/Phn-Cosy-S-SMA/common_voice_en_22713724-common_voice_en_22713725.wav" autoplay/>Your browser does not support the audio element.</audio><br>Since work done is force times distance, mechanical power is force times speed.</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</div>
+
+
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+	<h2 id="Samples from Seed-ZH-Hard" style="text-align: center;">Samples from Seed-ZH-Hard</h2>
+		<div class="table-responsive pt-3">
+			<table class="table table-hover pt-2">
+				<thead>
+				<tr>
+					<th style="vertical-align : middle;text-align: center">Prompt </th>
+					<th style="vertical-align : middle;text-align: center">Phn-Cosy-S</th>
+					<th style="vertical-align : middle;text-align: center">Phn-Cosy-S-SMA (Ours)</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/prompt/00004858-00000038.wav" autoplay/>Your browser does not support the audio element.</audio><br>好，先听听海报，那时，生活费用低。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S/114.wav" autoplay/>Your browser does not support the audio element.</audio><br>白猫满白毛房里一白猫，白猫满白毛。毛白白猫白，白猫白毛毛。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S-SMA/114.wav" autoplay/>Your browser does not support the audio element.</audio><br>白猫满白毛房里一白猫，白猫满白毛。毛白白猫白，白猫白毛毛。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/prompt/00005445-00000096.wav" autoplay/>Your browser does not support the audio element.</audio><br>似乎很难与巍峨高耸的石头教堂一争高下。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S/147.wav" autoplay/>Your browser does not support the audio element.</audio><br>小铃铛叮铃铃，叮铃铃，一会远，一会近。小宝宝，耳朵灵，听铃声，找到铃。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S-SMA/147.wav" autoplay/>Your browser does not support the audio element.</audio><br>小铃铛叮铃铃，叮铃铃，一会远，一会近。小宝宝，耳朵灵，听铃声，找到铃。</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/prompt/00004578-00000040.wav" autoplay/>Your browser does not support the audio element.</audio><br>这只白猫太可爱了，周身没一根杂毛，洁白如雪。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S/203.wav" autoplay/>Your browser does not support the audio element.</audio><br>嘟嘟哇，嘟嘟哇，耗子娶亲来到啦。八个耗子抬花轿，俩个耗子放鞭炮。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S-SMA/203.wav" autoplay/>Your browser does not support the audio element.</audio><br>嘟嘟哇，嘟嘟哇，耗子娶亲来到啦。八个耗子抬花轿，俩个耗子放鞭炮。</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/prompt/00004656-00000076.wav" autoplay/>Your browser does not support the audio element.</audio><br>几天前，他来到余姚找姐姐。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S/342.wav" autoplay/>Your browser does not support the audio element.</audio><br>g。父母是父母的父母，父母的父母是父母。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S-SMA/342.wav" autoplay/>Your browser does not support the audio element.</audio><br>父母的父母扶父母，父母扶父母的父母。父母是父母的父母，父母的父母是父母。</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/prompt/00004723-00000037.wav" autoplay/>Your browser does not support the audio element.</audio><br>跑车的车头被撞得拱起，保险杠也凹进去一块。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S/449.wav" autoplay/>Your browser does not support the audio element.</audio><br>打算打算打算打算打算打算打算赶快逃走。</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/Seed-ZH-Hard/Phn-Cosy-S-SMA/449.wav" autoplay/>Your browser does not support the audio element.</audio><br>打算打算打算打算打算打算打算赶快逃走。</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</div>
+
+
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+	<h2 id="Samples from ELLA-V-Hard" style="text-align: center;">Samples from ELLA-V-Hard</h2>
+		<div class="table-responsive pt-3">
+			<table class="table table-hover pt-2">
+				<thead>
+				<tr>
+					<th style="vertical-align : middle;text-align: center">Prompt </th>
+					<th style="vertical-align : middle;text-align: center">Phn-Cosy-S</th>
+					<th style="vertical-align : middle;text-align: center">Phn-Cosy-S-SMA (Ours)</th>
+				</tr>
+				</thead>
+				<tbody>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/prompt/common_voice_en_17256676.wav" autoplay/>Your browser does not support the audio element.</audio><br>Sometimes, I need to clear my browser cache to save more storage space.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S/22.wav" autoplay/>Your browser does not support the audio element.</audio><br>Witty writers wittily wrote whimsical words, weaving wonderful worlds.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S-SMA/22.wav" autoplay/>Your browser does not support the audio element.</audio><br>Witty writers wittily wrote whimsical words, weaving wonderful worlds.</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/prompt/common_voice_en_17267923.wav" autoplay/>Your browser does not support the audio element.</audio><br>I pressed the button for my nurse, but he did not come.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S/26.wav" autoplay/>Your browser does not support the audio element.</audio><br>Adventurous ants anxiously ate apples, adventurous adventurous apples.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S-SMA/26.wav" autoplay/>Your browser does not support the audio element.</audio><br>Adventurous ants anxiously ate apples, adventurous adventurous apples.</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/prompt/common_voice_en_17401431.wav" autoplay/>Your browser does not support the audio element.</audio><br>Not specifically no, he only gave me the gist of his research the one time I spoke to him.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S/46.wav" autoplay/>Your browser does not support the audio element.</audio><br>Quaint quokkas quietly questioned quaint quaint queries.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S-SMA/46.wav" autoplay/>Your browser does not support the audio element.</audio><br>Quaint quokkas quietly questioned quaint quaint queries.</td>
+					</tr>
+                    <tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/prompt/common_voice_en_17851231.wav" autoplay/>Your browser does not support the audio element.</audio><br>The stems of the tall glasses cracked and broke.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S/82.wav" autoplay/>Your browser does not support the audio element.</audio><br>In the bustling bustling bustling bustling bustling bustling metropolis.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S-SMA/82.wav" autoplay/>Your browser does not support the audio element.</audio><br>In the bustling bustling bustling bustling bustling bustling metropolis。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/prompt/common_voice_en_19043111.wav" autoplay/>Your browser does not support the audio element.</audio><br>In general, the legal "situs" of the property is where the instrument is located.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S/177.wav" autoplay/>Your browser does not support the audio element.</audio><br>Sad snakes sadly sighed sad sad sighs.</td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 190px;"><source src="audios/ELLA-V-Hard/Phn-Cosy-S-SMA/177.wav" autoplay/>Your browser does not support the audio element.</audio><br>Sad snakes sadly sighed sad sad sighs.</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</div>
+
+</article>
+</main>
+</div>
+
+</body>
+
+</script>
+</html>
